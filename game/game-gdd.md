@@ -10,22 +10,22 @@ Projektna faza: **lastna igra** — posodobi ta GDD (ali naredi novega), da se u
 
 | Polje | Vsebina |
 |-------|---------|
-| Naslov igre | |
-| Avtor / ekipa | |
-| Žanr | top-down survival / dungeon escape / … |
+| Naslov igre | Preživetje Vampirjev|
+| Avtor / ekipa | David Ocvirk|
+| Žanr | top-down survival|
 | Platforma | brskalnik (HTML5 Canvas + JS) |
-| Ciljna dolžina ene seje | npr. 3–10 min |
+| Ciljna dolžina ene seje | 5–10 min |
 | Datum / verzija GDD | |
 
 ## 2. Elevator pitch (2–3 stavki)
 
-> Kaj igraš, zakaj je zabavno, kako “umreš” ali zmagaš?
+Igralec nadzoruje lik, ki mora preživeti čim dlje v areni, polni sovražnikov. Sovražniki se igralcu približujejo, igralec pa jih avtomatsko napada. Cilj igre je preživeti čim dlje in doseči čim višji rezultat.
 
 ## 3. Fantazija / tema
 
-- Svet in ton (npr. mesto ponoči, podzemlje …):
-- Referenčne igre (2–3):
-- Zakaj Canvas / ta sklop mehanik ustreza temi:
+- Svet in ton (npr. mesto ponoči, podzemlje …): Fantazijski svet, v katerem se igralec bori proti vedno večjemu številu sovražnikov.
+- Referenčne igre (2–3): Vampire Survivors, 20 Minutes Till Dawn.
+- Zakaj Canvas / ta sklop mehanik ustreza temi: Preprosta 2D grafika, premikanje igralca in sovražnikov ter prikaz napadov.
 
 ## 4. Jedrne mehanike
 
@@ -33,18 +33,18 @@ Za vsako mehaniko: **vhod → pravilo → feedback**.
 
 | # | Mehanika | Vhod | Pravilo | Feedback |
 |---|----------|------|---------|----------|
-| 1 | Premikanje | WASD | … | … |
-| 2 | Streljanje | miška | … | … |
-| 3 | Škoda / HP | — | … | … |
+| 1 | Premikanje | WASD | Igralec se premika po areni. | Premikanje lika|
+| 2 | Streljanje | miška | Igralec napada sovražnike. |	Projektili |
+| 3 | Škoda / HP | — | Ob dotiku sovražnika igralec izgubi HP. | 	Prikaz HP |
 | 4 | Valovi / napredek | — | … | … |
 | 5 | *(tvoja)* | | | |
 
 ## 5. Igralec
 
-- Velikost / hitrost (začetne vrednosti):
-- Zdravje:
-- Orožje / cooldown:
-- Omejitve:
+- Velikost / hitrost (začetne vrednosti): Srednja velikost, normalna hitrost.
+- Zdravje: 100 HP.
+- Orožje / cooldown: Osnovno avtomatsko orožje.
+- Omejitve: Igralec ne sme zapustiti igralne arene.
 
 ## 6. Sovražniki / ovire
 
