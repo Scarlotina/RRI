@@ -33,6 +33,7 @@
     a: false,
     s: false,
     d: false,
+    shift: false,
   };
 
   window.addEventListener("keydown", (e) => {
@@ -52,7 +53,7 @@
 
   // --- Posodobitev igralca --------------------------------------------------
   /**
-   * Premakne igralca glede na WASD in omeji na rob platna.
+   * Premakne igralca glede na WASD, sprint s Shift in omeji na rob platna.
    * @param {number} dt — čas od zadnjega frejma v sekundah
    */
   function updatePlayer(dt) {
@@ -71,8 +72,9 @@
       dy /= len;
     }
 
-    player.x += dx * player.speed * dt;
-    player.y += dy * player.speed * dt;
+    const speed = player.speed * (keys.shift ? 2 : 1);
+    player.x += dx * speed * dt;
+    player.y += dy * speed * dt;
 
     // Omejitev na platno (clamp)
     player.x = Math.max(0, Math.min(W - player.w, player.x));
