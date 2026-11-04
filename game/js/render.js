@@ -3,7 +3,7 @@ import { world } from "./world.js";
 
 // --- Risanje ----------------------------------------------------------------
 export function draw() {
-	const { ctx, W, H, player } = world;
+	const { ctx, W, H, player, enemies } = world;
 	// Počisti platno (temno ozadje — dopolnjuje CSS).
 	ctx.fillStyle = "#1a1d23";
 	ctx.fillRect(0, 0, W, H);
@@ -14,9 +14,16 @@ export function draw() {
 		ctx.fillRect(wall.x, wall.y, wall.w, wall.h);
 	}
 
+	// Sovražniki.
+	for (const enemy of enemies) {
+		ctx.fillStyle = enemy.color;
+		ctx.fillRect(enemy.x, enemy.y, enemy.w, enemy.h);
+	}
+
 	// Igralec.
-	ctx.fillStyle = player.color;
+	ctx.fillStyle = player.flashRed ? "#ef4444" : player.color;
 	ctx.fillRect(player.x, player.y, player.w, player.h);
+	player.flashRed = false;
 
 	// Majhen "obraz" / smer — samo vizualni namig (opcijsko).
 	ctx.fillStyle = "#93c5fd";

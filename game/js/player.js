@@ -16,6 +16,8 @@ export function createPlayer() {
 		h: PLAYER_SIZE,
 		speed: PLAYER_SPEED,
 		color: PLAYER_COLOR,
+		enemyCollision: false,
+		flashRed: false,
 	};
 }
 
@@ -43,7 +45,9 @@ export function updatePlayer(dt) {
 
 	const speedMultiplier = keys.shift ? SPRINT_MULTIPLIER : 1;
 	const speed = player.speed * speedMultiplier;
-	moveWithWalls(player, dx * speed * dt, dy * speed * dt);
+	const hitEnemy = moveWithWalls(player, dx * speed * dt, dy * speed * dt);
+	player.flashRed = hitEnemy && !player.enemyCollision;
+	player.enemyCollision = hitEnemy;
 	// Omejitev na platno (clamp).
 	player.x = Math.max(0, Math.min(world.W - player.w, player.x));
 	player.y = Math.max(0, Math.min(world.H - player.h, player.y));
