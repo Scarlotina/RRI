@@ -4,6 +4,7 @@ import {
 	PLAYER_SPEED,
 	SPRINT_MULTIPLIER,
 } from "./config.js";
+import { moveWithWalls } from "./collision.js";
 import { world } from "./world.js";
 
 // --- Igralec ---------------------------------------------------------------
@@ -42,8 +43,7 @@ export function updatePlayer(dt) {
 
 	const speedMultiplier = keys.shift ? SPRINT_MULTIPLIER : 1;
 	const speed = player.speed * speedMultiplier;
-	player.x += dx * speed * dt;
-	player.y += dy * speed * dt;
+	moveWithWalls(player, dx * speed * dt, dy * speed * dt);
 	// Omejitev na platno (clamp).
 	player.x = Math.max(0, Math.min(world.W - player.w, player.x));
 	player.y = Math.max(0, Math.min(world.H - player.h, player.y));
