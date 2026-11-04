@@ -12,6 +12,7 @@ export const world = {
 	state: GAME_STATES.PLAYING,
 	// Igralca ustvari glavna datoteka game.js.
 	player: null,
+	enemies: [],
 	// true = tipka je trenutno pritisnjena.
 	keys: { w: false, a: false, s: false, d: false, shift: false },
 };

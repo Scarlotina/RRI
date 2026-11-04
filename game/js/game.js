@@ -6,6 +6,7 @@
  * Teden 2+: tukaj dodamo sovražnika, trke, strele …
  */
 import { GAME_STATES } from "./config.js";
+import "./enemies.js";
 import { bindInput } from "./input.js";
 import { createPlayer, updatePlayer } from "./player.js";
 import { draw } from "./render.js";
