@@ -14,6 +14,9 @@ export const SPRINT_MULTIPLIER = 1.6;
 export const PLAYER_SIZE = 32;
 // Modra barva igralca.
 export const PLAYER_COLOR = "#3b82f6";
+export const BULLET_SPEED = 420;
+export const BULLET_COOLDOWN = 0.25;
+export const BULLET_SIZE = 8;
 
 export const walls = [
 	{ x: 100, y: 100, w: 200, h: 24 },

@@ -7,9 +7,9 @@
  */
 import { GAME_STATES } from "./config.js";
 import "./enemies.js";
+import { shoot, updateBullets } from "./bullets.js";
 import { bindInput } from "./input.js";
 import { createPlayer, updatePlayer } from "./player.js";
-
 import { draw } from "./render.js";
 import { world } from "./world.js";
 
@@ -34,6 +34,11 @@ function update(timestamp) {
 
 	if (world.state === GAME_STATES.PLAYING) {
 		updatePlayer(dt);
+		world.shotTimer = Math.max(0, world.shotTimer - dt);
+		if (world.mouse.down && world.shotTimer <= 0) {
+			shoot();
+		}
+		updateBullets(dt);
 	}
 	// Kasneje (teden 4+): tukaj posodobiš tudi sovražnike in strele.
 	draw();

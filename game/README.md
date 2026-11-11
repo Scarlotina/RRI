@@ -12,15 +12,15 @@ Minimalna igriva osnova za **P16 Razvoj računalniških iger**.
 
 ## Zagon
 
-Iz mape `starter/`:
+Iz korenske mape repozitorija zaženi:
 
 ```bash
-python3 -m http.server 8080
+python game/serve.py 8000
 ```
 
-Odpri brskalnik: [http://localhost:8080](http://localhost:8080)
+Odpri brskalnik: [http://localhost:8000](http://localhost:8000). Ta strežnik pravilno nastavi MIME-vrsto za JavaScript module.
 
-(Druge možnosti: VS Code Live Server, `npx serve .` …)
+(Uporabiš lahko tudi VS Code Live Server ali `npx serve game`.)
 
 ## Datoteke
 

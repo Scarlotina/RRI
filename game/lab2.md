@@ -1,6 +1,4 @@
 # PREMIKANJE
 
-Normalizacija omogoči, da imamo enako hitrost tudi po
- diagonalo zaradi korena iz 2 oz. 1.41.
-Če normalizacije nimamo, potem se po diagonali igralec 
-premika hitreje, kar ni zaželjeno.
+Normalizacija omogoči, da imamo enako hitrost tudi po diagonali zaradi korena iz 2 oziroma 1,41.
+Če normalizacije nimamo, se igralec po diagonali premika hitreje, kar ni zaželeno.

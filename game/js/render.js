@@ -20,6 +20,12 @@ export function draw() {
 		ctx.fillRect(enemy.x, enemy.y, enemy.w, enemy.h);
 	}
 
+	// Projektili.
+	ctx.fillStyle = "#facc15";
+	for (const bullet of world.bullets) {
+		ctx.fillRect(bullet.x, bullet.y, bullet.w, bullet.h);
+	}
+
 	// Igralec.
 	ctx.fillStyle = player.flashRed ? "#ef4444" : player.color;
 	ctx.fillRect(player.x, player.y, player.w, player.h);
@@ -29,4 +35,16 @@ export function draw() {
 	ctx.fillStyle = "#93c5fd";
 	ctx.fillRect(player.x + 8, player.y + 8, 6, 6);
 	ctx.fillRect(player.x + 18, player.y + 8, 6, 6);
+
+	// Ciljnik sledi kazalcu v koordinatah platna.
+	if (world.mouse.inside) {
+		const markerSize = 8;
+		ctx.fillStyle = "#facc15";
+		ctx.fillRect(
+			world.mouse.x - markerSize / 2,
+			world.mouse.y - markerSize / 2,
+			markerSize,
+			markerSize,
+		);
+	}
 }
