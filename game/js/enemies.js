@@ -6,4 +6,5 @@ world.enemies.push({
 	w: 32,
 	h: 32,
 	color: "#22c55e",
+	flashRed: false,
 });

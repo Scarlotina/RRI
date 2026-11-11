@@ -1,4 +1,10 @@
-import { BULLET_COOLDOWN, BULLET_SIZE, BULLET_SPEED } from "./config.js";
+import {
+	BULLET_COOLDOWN,
+	BULLET_SIZE,
+	BULLET_SPEED,
+	walls,
+} from "./config.js";
+import { aabbOverlap } from "./collision.js";
 import { world } from "./world.js";
 
 export function shoot() {
@@ -30,12 +36,21 @@ export function updateBullets(dt) {
 		bullet.x += bullet.vx * BULLET_SPEED * dt;
 		bullet.y += bullet.vy * BULLET_SPEED * dt;
 
+		const hitsWall = walls.some((wall) => aabbOverlap(bullet, wall));
 		if (
+			hitsWall ||
 			bullet.x + bullet.w < 0 ||
 			bullet.x > world.W ||
 			bullet.y + bullet.h < 0 ||
 			bullet.y > world.H
 		) {
+			world.bullets.splice(i, 1);
+			continue;
+		}
+
+		const hitEnemy = world.enemies.find((enemy) => aabbOverlap(bullet, enemy));
+		if (hitEnemy) {
+			hitEnemy.flashRed = true;
 			world.bullets.splice(i, 1);
 		}
 	}
